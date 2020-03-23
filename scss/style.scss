@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-sections {
+  margin-bottom: 100px;
+}
+
+#footer .social-links {
+  display: flex;
+  justify-content: center;
+
+  li {
+    border-radius: 50%;
+    height: 100%;
+    width: 50px;
+    background: #0d3ba2;
+    text-align: center;
+    color: white;
+    margin-right: 10px;
+  }
+}

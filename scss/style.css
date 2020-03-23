@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main-sections {
+  margin-bottom: 100px;
+}
+
+#footer .social-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#footer .social-links li {
+  border-radius: 50%;
+  height: 100%;
+  width: 50px;
+  background: #0d3ba2;
+  text-align: center;
+  color: white;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=style.css.map */
