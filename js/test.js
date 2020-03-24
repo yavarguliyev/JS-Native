@@ -4,7 +4,7 @@
 
 class Validation {
     constructor() {
-        const input = document.getElementsByClassName('form-control');
+        const input = document.getElementsByClassName('input-val');
 
         const span = document.querySelectorAll('span[id="span-val"]');
 
@@ -388,7 +388,10 @@ class Validation {
         let tableTbodyTrTdIconsDelete = document.createElement('a');
         let tableTbodyTrTdIconsDeleteIcon = document.createElement('i');
 
+        tableTbodyTrTdIconsEdit.setAttribute('id', 'edit-info');
         tableTbodyTrTdIconsEdit.setAttribute('href', '#');
+        tableTbodyTrTdIconsEdit.setAttribute('data-toggle', 'modal');
+        tableTbodyTrTdIconsEdit.setAttribute('data-target', 'modalInfo');
         tableTbodyTrTdIconsEditIcon.setAttribute('class', 'fas fa-edit');
         tableTbodyTrTdIconsEditIcon.setAttribute('aria-hidden', 'true');
         tableTbodyTrTdIconsEdit.append(tableTbodyTrTdIconsEditIcon);
@@ -442,6 +445,11 @@ class Validation {
                 }
             });
         });
+
+        document.getElementById("edit-info").addEventListener("click", function (ev) {
+            ev.preventDefault();
+            document.getElementById('modalInfo').modal('show');
+        });
     }
     reset() {
         for (let i = 0; i < this.span.length; i++) {
@@ -490,6 +498,16 @@ modalClickButton.addEventListener('click', function (ev) {
 
 modalRemoveButton.addEventListener('click', function (ev) {
     ev.preventDefault();
+    let form = document.getElementById('form-onsubmit');
+    const input = document.querySelectorAll('.input-val');
+    const span = document.querySelectorAll('span[id="span-val"]');
+    for (let i = 0; i < span.length; i++) {
+        span[i].classList.add('invisible');
+        span[i].innerHTML = '';
+    }
+    for (let i = 0; i < input.length; i++) {
+        input[i].value = '';
+    }
     colInfo.removeChild(form);
 });
 

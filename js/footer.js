@@ -10,6 +10,69 @@ footerContainer.setAttribute('class', 'container');
 let footerRow = document.createElement('div');
 footerRow.setAttribute('class', 'row');
 
+// Rating stars starts
+
+let starDiv = document.createElement('div');
+starDiv.setAttribute('class', 'col-lg-12 d-flex justify-content-center');
+
+let starUl = document.createElement('ul');
+starUl.setAttribute('class', 'list-unstyled stars');
+
+let starFirstLi = document.createElement('li');
+let fstarFirstLiButton = document.createElement('a');
+fstarFirstLiButton.setAttribute('href', '#');
+let starFirstLiIcon = document.createElement('i');
+starFirstLiIcon.setAttribute('id', 'rating-star');
+starFirstLiIcon.setAttribute('class', 'far fa-star fa-2x');
+
+let starSecondLi = document.createElement('li');
+let fstarSecondLiButton = document.createElement('a');
+fstarSecondLiButton.setAttribute('href', '#');
+let starSecondLiIcon = document.createElement('i');
+starSecondLiIcon.setAttribute('id', 'rating-star');
+starSecondLiIcon.setAttribute('class', 'far fa-star fa-2x');
+
+let starThirdLi = document.createElement('li');
+let fstarThirdLiButton = document.createElement('a');
+fstarThirdLiButton.setAttribute('href', '#');
+let starThirdLiIcon = document.createElement('i');
+starThirdLiIcon.setAttribute('id', 'rating-star');
+starThirdLiIcon.setAttribute('class', 'far fa-star fa-2x');
+
+let starFourthLi = document.createElement('li');
+let fstarFourthLiButton = document.createElement('a');
+fstarFourthLiButton.setAttribute('href', '#');
+let starFourthLiIcon = document.createElement('i');
+starFourthLiIcon.setAttribute('id', 'rating-star');
+starFourthLiIcon.setAttribute('class', 'far fa-star fa-2x');
+
+let starFifthLi = document.createElement('li');
+let fstarFifthLiButton = document.createElement('a');
+fstarFifthLiButton.setAttribute('href', '#');
+let starFifthLiIcon = document.createElement('i');
+starFifthLiIcon.setAttribute('id', 'rating-star');
+starFifthLiIcon.setAttribute('class', 'far fa-star fa-2x');
+
+footerRow.append(starDiv);
+starDiv.append(starUl);
+starUl.append(starFirstLi);
+starUl.append(starSecondLi);
+starUl.append(starThirdLi);
+starUl.append(starFourthLi);
+starUl.append(starFifthLi);
+starFirstLi.append(fstarFirstLiButton);
+starFirstLi.append(starSecondLiIcon);
+starFirstLi.append(starThirdLiIcon);
+starFirstLi.append(fstarFourthLiButton);
+starFirstLi.append(fstarFifthLiButton);
+fstarFirstLiButton.append(starFirstLiIcon);
+fstarFirstLiButton.append(starSecondLiIcon);
+fstarFirstLiButton.append(starThirdLiIcon);
+fstarFirstLiButton.append(starFourthLiIcon);
+fstarFirstLiButton.append(starFifthLiIcon);
+
+// Rating stars ends
+
 let footerCol = document.createElement('div');
 footerCol.setAttribute('class', 'col-lg-12');
 
@@ -50,3 +113,7 @@ footerCol.append(footerUl);
 footerUl.append(footerListFacebook);
 footerUl.append(footerListTwitter);
 footerUl.append(footerListGithub);
+
+// Rating
+
+let ratingOnHover = document.querySelectorAll('#rating-star');

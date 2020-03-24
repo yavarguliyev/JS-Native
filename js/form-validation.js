@@ -4,7 +4,7 @@
 
 class Validation {
     constructor() {
-        const input = document.getElementsByClassName('form-control');
+        const input = document.getElementsByClassName('input-val');
 
         const span = document.querySelectorAll('span[id="span-val"]');
 

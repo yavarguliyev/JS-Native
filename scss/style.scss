@@ -22,3 +22,14 @@ body {
     margin-right: 10px;
   }
 }
+
+#rating-star {
+  color: rgb(252, 164, 0);
+}
+
+.dropdown .show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
