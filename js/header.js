@@ -31,7 +31,7 @@ navbarUl.setAttribute('id', 'navbar-list');
 navbarUl.setAttribute('class', 'navbar-nav ml-auto');
 
 let navbarItemHome = document.createElement('li');
-navbarItemHome.setAttribute('class', 'nav-item');
+navbarItemHome.setAttribute('class', 'nav-item font-weight-bold');
 let navbarButtonHome = document.createElement('a');
 navbarButtonHome.setAttribute('href', 'index.html');
 navbarButtonHome.setAttribute('class', 'nav-link');
@@ -39,7 +39,7 @@ navbarButtonHome.innerHTML = 'Home';
 navbarItemHome.append(navbarButtonHome);
 
 let navbarItemAbout = document.createElement('li');
-navbarItemAbout.setAttribute('class', 'nav-item');
+navbarItemAbout.setAttribute('class', 'nav-item font-weight-bold');
 let navbarButtonAbout = document.createElement('a');
 navbarButtonAbout.setAttribute('href', 'about.html');
 navbarButtonAbout.setAttribute('class', 'nav-link');
@@ -47,7 +47,7 @@ navbarButtonAbout.innerHTML = 'About';
 navbarItemAbout.append(navbarButtonAbout);
 
 let navbarItemContact = document.createElement('li');
-navbarItemContact.setAttribute('class', 'nav-item');
+navbarItemContact.setAttribute('class', 'nav-item font-weight-bold');
 let navbarButtonContact = document.createElement('a');
 navbarButtonContact.setAttribute('href', 'contact.html');
 navbarButtonContact.setAttribute('class', 'nav-link');
@@ -124,26 +124,26 @@ showProductMenuProduct6.setAttribute('style', 'width:170px; height:100px;');
 
 showProductMenu.append(showProductMenuProduct6);
 
-let showProductMenuProduct1 = document.createElement('h6');
+let showProductMenuProduct1 = document.createElement('p');
 showProductMenuProduct1.setAttribute('type', 'submit');
 showProductMenuProduct1.setAttribute('id', 'product-name');
-showProductMenuProduct1.setAttribute('class', 'dropdown-item');
+showProductMenuProduct1.setAttribute('class', 'dropdown-item text-center');
 showProductMenuProduct1.innerHTML = ``;
 
 showProductMenu.append(showProductMenuProduct1);
 
-let showProductMenuProduct2 = document.createElement('h6');
+let showProductMenuProduct2 = document.createElement('p');
 showProductMenuProduct2.setAttribute('type', 'submit');
 showProductMenuProduct2.setAttribute('id', 'product-price');
-showProductMenuProduct2.setAttribute('class', 'dropdown-item');
+showProductMenuProduct2.setAttribute('class', 'dropdown-item text-center');
 showProductMenuProduct2.innerHTML = ``;
 
 showProductMenu.append(showProductMenuProduct2);
 
-let showProductMenuProduct3 = document.createElement('h6');
+let showProductMenuProduct3 = document.createElement('p');
 showProductMenuProduct3.setAttribute('type', 'submit');
 showProductMenuProduct3.setAttribute('id', 'product-quantity');
-showProductMenuProduct3.setAttribute('class', 'dropdown-item');
+showProductMenuProduct3.setAttribute('class', 'dropdown-item text-center');
 showProductMenuProduct3.innerHTML = ``;
 
 showProductMenu.append(showProductMenuProduct3);
@@ -173,3 +173,24 @@ basket.append(basketbutton);
 basket.append(showProduct);
 basketbutton.append(basketbuttonIcon);
 basketbutton.append(basketQuantity);
+
+class ActiveClass {
+    constructor() {
+        this.classElement = document.querySelectorAll('.nav-item');
+    }
+
+    activeUrl() {
+        let urlDirection = this.classElement;
+        for (let i = 0; i < urlDirection.length; i++) {
+            let url = urlDirection[i].children[0].attributes[0];
+            let urlClass = urlDirection[i];
+            let currentPage = location.pathname;
+            if (currentPage == '/' + url.value) {
+                urlClass.classList.add('active');
+            }
+        }
+    }
+}
+
+let urlActive = new ActiveClass();
+urlActive.activeUrl();

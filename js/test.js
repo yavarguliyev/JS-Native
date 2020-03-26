@@ -236,13 +236,26 @@ class Validation {
         const password = this.input[3];
         const passwordStyle = this.input[3];
 
+        const cpassword = this.input[4];
+        const cpasswordStyle = this.input[4];
+
         const passwordSpanClass = this.span[3].classList;
         const passwordContains = this.span[3].classList.contains('invisible') ? true : false;
         const passwordSpanText = this.span[3];
 
+        const cpasswordSpanClass = this.span[4].classList;
+        const cpasswordContains = this.span[4].classList.contains('invisible') ? true : false;
+        const cpasswordSpanText = this.span[4];
+
         const passwordRequired = this.passwordRequired;
         const passwordMin = this.passwordMin;
         const passwrodMax = this.passwordMax;
+
+        const cpasswordRequired = this.cpasswordRequired;
+        const cpasswordMin = this.cpasswordMin;
+        const cpasswrodMax = this.cpasswordMax;
+        const cpasswrodMatch = this.match;
+
 
         password.addEventListener('keyup', function (ev) {
             if (password.value.length == 0) {
@@ -289,19 +302,12 @@ class Validation {
                 passwordSpanText.innerHTML = '';
                 passwordStyle.style.borderColor = '';
             }
+            if (password.value == cpassword.value) {
+                cpasswordSpanClass.add('invisible');
+                cpasswordSpanText.innerHTML = '';
+                cpasswordStyle.style.borderColor = '';
+            }
         }, true);
-
-        const cpassword = this.input[4];
-        const cpasswordStyle = this.input[4];
-
-        const cpasswordSpanClass = this.span[4].classList;
-        const cpasswordContains = this.span[4].classList.contains('invisible') ? true : false;
-        const cpasswordSpanText = this.span[4];
-
-        const cpasswordRequired = this.cpasswordRequired;
-        const cpasswordMin = this.cpasswordMin;
-        const cpasswrodMax = this.cpasswordMax;
-        const cpasswrodMatch = this.match;
 
         cpassword.addEventListener('keyup', function (ev) {
             if (cpassword.value.length == 0) {
@@ -356,7 +362,7 @@ class Validation {
                     return false;
                 }
             }
-            if (cpassword.value.length >= 6 && cpassword.value.length <= 100) {
+            if (cpassword.value.length >= 6 && cpassword.value.length <= 100 && password.value == cpassword.value) {
                 cpasswordSpanClass.add('invisible');
                 cpasswordSpanText.innerHTML = '';
                 cpasswordStyle.style.borderColor = '';
@@ -507,6 +513,7 @@ modalRemoveButton.addEventListener('click', function (ev) {
     }
     for (let i = 0; i < input.length; i++) {
         input[i].value = '';
+        input[i].style.borderColor = '';
     }
     colInfo.removeChild(form);
 });
