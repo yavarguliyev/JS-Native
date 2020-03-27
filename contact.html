@@ -16,12 +16,12 @@
     <!-- Header Starts -->
     <header>
         <section id="header" class="main-sections">
-            <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
-                <div class="container">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
                     <img class="d-inline-block align-top" widht="30" height="30" src="img/javascript-icon-clipart-6.png"
                         alt="js"><a href="index.html" class="navbar-brand">JavaScript</a>
                     <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                        <ul id="navbar-list" class="navbar-nav ml-auto">
+                        <ul id="navbar-list" class="navbar-nav mr-auto">
                             <li class="nav-item font-weight-bold"><a href="index.html" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item font-weight-bold"><a href="about.html" class="nav-link">About</a></li>
@@ -36,31 +36,33 @@
                             value="Search">
                         <span id="search-span" class="invisible font-weight-bold text-danger"></span>
                     </form>
-                    <div id="basket" class="basket d-flex m-2">
-                        <a href="#" id="basket-button" class="basket-button text-dark">
-                            <i class="fas fa-cart-plus fa-2x" aria-hidden="true"></i>
-                            <span id="count-value" class="m-2">0</span>
-                        </a>
-                        <div class="dropdown">
-                            <button id="dropdownMenu2" class="btn btn-secondary dropdown-toggle" type="submit"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <div class="container">
-                                    <div id="dropdown-menu-values" class="row"></div>
-                                </div>
-                                <button type="submit" id="product-clear" class="btn btn-danger m-1">Clear</button>
-                                <button type="submit" id="product-checkout"
-                                    class="btn btn-success m-1">Checkout</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </section>
     </header>
     <!-- Header Ends -->
     <!-- Main Starts -->
     <main>
+        <!-- Section Card Starts  -->
+        <section id="card-items">
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col-12 card-items border border-primary parent-element">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 border border-primary ml-auto d-flex justify-content-center pt-1">
+                        <p class="font-weight-bold text-center card-total-price">Total: $0</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 border border-primary ml-auto d-flex justify-content-center py-1">
+                        <button id="shopping-purchase" class="btn btn-success">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Card Ends  -->
         <!-- Section Table Starts -->
         <section id="table" class="main-sections"></section>
         <!-- Section Table Ends -->
@@ -73,73 +75,59 @@
                 </div>
             </div>
             <div id="add-card" class="container my-3">
-                <form id="form-add-to-cart">
-                    <div id="value-count" class="row">
-                        <div class="col-lg-4 1">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/img/iphone-4507288_1280.jpg" class="card-img-top" alt="IPhone11ProMax">
-                                <div class="card-body">
-                                    <h5 id="productValue" class="card-title">IPhone 11 Pro Max</h5>
-                                    <p class=card-text>Price: 1300 USD</p>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-5">
-                                                <input type="number" id="quantity-value" class="form-control" step="1"
-                                                    min="1" max="100" value="1" />
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <input type="submit" id="add-value" class="btn btn-outline-primary 1"
-                                                    value="Add To Cart" />
-                                            </div>
+                <div id="value-count" class="row">
+                    <div class="col-lg-4 1">
+                        <div class="card border border-primary" style="width: 288px;">
+                            <img src="/img/iphone-4507288_1280.jpg" class="card-img-top" alt="IPhone11ProMax">
+                            <div class="card-body">
+                                <h5 id="productValue" class="card-title">IPhone 11 Pro Max</h5>
+                                <p class=card-text>$1299.01</p>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-7 ml-auto">
+                                            <input type="submit" id="add-value"
+                                                class="btn btn-outline-primary add-value" value="Add To Cart" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 2">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/img/iphone-4507288_1280.jpg" class="card-img-top" alt="IPhone11Pro">
-                                <div class="card-body">
-                                    <h5 id="productValue" class="card-title">IPhone 11 Pro</h5>
-                                    <p class=card-text>Price: 1200 USD</p>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-5">
-                                                <input type="number" id="quantity-value" class="form-control" step="1"
-                                                    min="1" max="100" value="1" />
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <input type="submit" id="add-value" class="btn btn-outline-primary 2"
-                                                    value="Add To Cart" />
-                                            </div>
+                    </div>
+                    <div class="col-lg-4 2">
+                        <div class="card border border-primary" style="width: 288px;">
+                            <img src="/img/iphone-4507288_1280.jpg" class="card-img-top" alt="IPhone11Pro">
+                            <div class="card-body">
+                                <h5 id="productValue" class="card-title">IPhone 11 Pro</h5>
+                                <p class=card-text>$1199.01</p>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-7 ml-auto">
+                                            <input type="submit" id="add-value"
+                                                class="btn btn-outline-primary add-value" value="Add To Cart" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 3">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/img/iphone-4507288_1280.jpg" class="card-img-top" alt="IPhone11">
-                                <div class="card-body">
-                                    <h5 id="productValue" class="card-title">IPhone 11</h5>
-                                    <p class=card-text>Price: 1100 USD</p>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-5">
-                                                <input type="number" id="quantity-value" class="form-control" step="1"
-                                                    min="1" max="100" value="1" />
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <input type="submit" id="add-value" class="btn btn-outline-primary 3"
-                                                    value="Add To Cart" />
-                                            </div>
+                    </div>
+                    <div class="col-lg-4 3">
+                        <div class="card border border-primary" style="width: 288px;">
+                            <img src="/img/iphone-4507288_1280.jpg" class="card-img-top" alt="IPhone11Gold">
+                            <div class="card-body">
+                                <h5 id="productValue" class="card-title">IPhone 11 Gold</h5>
+                                <p class=card-text>$1099.01</p>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-7 ml-auto">
+                                            <input type="submit" id="add-value"
+                                                class="btn btn-outline-primary add-value" value="Add To Cart" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                </form>
-            </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Section Form Ends -->
@@ -154,16 +142,14 @@
     <script src="vendor/js/sweet-alert.js"></script>
     <script src="vendor/js/toaster.js"></script>
     <script src="vendor/js/toaster-main.js"></script>
-    <!-- <script src="js/header.js"></script> -->
     <script src="js/table.js"></script>
     <script src="js/table-score.js"></script>
     <script src="js/score-form-inputs.js"></script>
     <script src="js/score-form.js"></script>
     <script src="js/form.js"></script>
     <script src="js/test.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/footer.js"></script>
-    <script src="js/contact-add-to-cart.js"></script>
+    <script src="js/add-to-card.js" async></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
