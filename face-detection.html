@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detector</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+    <script defer src="/dist/face-api.min.js"></script>
+    <script defer src="/dist/face-detector.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vh;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas{
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 m-auto">
+                <video id="video" width="720" height="560" autoplay muted></video>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

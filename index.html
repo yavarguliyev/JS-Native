@@ -27,14 +27,16 @@
                             <li class="nav-item font-weight-bold"><a href="about.html" class="nav-link">About</a></li>
                             <li class="nav-item font-weight-bold"><a href="contact.html" class="nav-link">Contact</a>
                             </li>
+                            <li class="nav-item font-weight-bold"><a href="face-detection.html" class="nav-link">Face
+                                    Detect</a>
+                            </li>
                         </ul>
                     </div>
                     <form class="form-inline my-2 my-lg-0">
-                        <input id="search-input" class="form-control search-form mr-sm-2" type="search"
-                            placeholder="Search" aria-label="Search">
+                        <input autofocus type="text" placeholder="Search" class="form-control search-form mr-sm-2"
+                            id="search">
                         <input id="search-submit-input" class="btn btn-success my-2 my-sm-0" type="submit"
                             value="Search">
-                        <span id="search-span" class="invisible font-weight-bold text-danger"></span>
                     </form>
                 </nav>
             </div>
@@ -43,6 +45,72 @@
     <!-- Header Ends -->
     <!-- Main Starts -->
     <main>
+        <!-- Section Searching Values Starts  -->
+        <section id="search-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 m-auto">
+                        <ul id="list" class="list-group"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Searching Values Ends  -->
+        <!-- Section Searching With Json Starts  -->
+        <section id="search-section">
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-md-6 m-auto">
+                        <h3 class="text-center mb-3">
+                            <i class="fas fa-flag-usa"></i> State Capital Lookup
+                        </h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" id="state-search"
+                                placeholder="Enter state name or abbreviation...">
+                        </div>
+                        <div id="match-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Searching With Json Ends  -->
+        <!-- Section Searching Values Starts  -->
+        <section id="multi-search">
+            <div class="container my-5">
+                <div class="row border border-primary py-5">
+                    <div class="col-3">
+                        <label for="cars">Car Name: </label>
+                        <select class="car form-control">
+                            <option selected>Please Select</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="cars">Car Model: </label>
+                        <select class="car form-control">
+                            <option selected>Please Select</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="cars">Car Engine: </label>
+                        <select class="car form-control">
+                            <option value="0">Please Select</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="cars">Car Color: </label>
+                        <select class="car form-control">
+                            <option value="0">Please Select</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 border border-primary ml-auto d-flex justify-content-center py-1">
+                        <button class="btn btn-success">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Searching Values Ends  -->
         <!-- Section Card Starts  -->
         <section id="card-items">
             <div class="container my-4">
@@ -131,20 +199,119 @@
             </div>
         </section>
         <!-- Section Form Ends -->
+        <!-- Section Rating Starts -->
+        <section id="rating">
+            <div class="container">
+                <div class="row my-3">
+                    <div class=" col-md-6 m-auto form-group my-3">
+                        <select id="product-select" class="form-control custom-select">
+                            <option value="0" selected disabled>Select Product</option>
+                            <option value="sony">Sony 4K TV</option>
+                            <option value="samsung">Samsung 4K TV</option>
+                            <option value="vizio">Vizio 4K TV</option>
+                            <option value="panasonic">Panasonic 4K TV</option>
+                            <option value="philips">Philips 4K TV</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class=" col-md-6 m-auto form-group my-3">
+                        <input type="number" class="form-control" id="rating-control" step="0.1" max="5"
+                            placeholder="Rate 1 - 5" disabled>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col md-12 m-auto">
+                        <table class="table table-stripped">
+                            <thead>
+                                <tr>
+                                    <th>4K Television</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="sony">
+                                    <td>Sony 4K TV</td>
+                                    <td>
+                                        <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span>
+                                    </td>
+                                </tr>
+                                <tr class="samsung">
+                                    <td>Samsung 4K TV</td>
+                                    <td>
+                                        <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span>
+                                    </td>
+                                </tr>
+                                <tr class="vizio">
+                                    <td>Vizio 4K TV</td>
+                                    <td>
+                                        <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span>
+                                    </td>
+                                </tr>
+                                <tr class="panasonic">
+                                    <td>Panasonic 4K TV</td>
+                                    <td>
+                                        <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span>
+                                    </td>
+                                </tr>
+                                <tr class="philips">
+                                    <td>Philips 4K TV</td>
+                                    <td>
+                                        <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Rating Ends -->
     </main>
     <!-- Main Ends -->
     <footer>
-        <!-- Footer Starts -->
-        <section id="footer"></section>
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled social-links">
+                            <li><a href="https://www.facebook.com/" target="_blank"><i
+                                        class="fab fa-facebook text-white" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter text-white"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.github.com/" target="_blank"><i class="fab fa-github text-white"
+                                        aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
     </footer>
     <!-- Footer Ends -->
     <script src="vendor/js/jquery.js"></script>
     <script src="vendor/js/sweet-alert.js"></script>
     <script src="vendor/js/toaster.js"></script>
     <script src="vendor/js/toaster-main.js"></script>
+    <script src="js/search.js" async></script>
     <script src="js/table.js" async></script>
-    <script src="js/footer.js" async></script>
     <script src="js/add-to-card.js" async></script>
+    <script src="js/search-by-json.js"></script>
+    <script src="js/rating.js" async></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 

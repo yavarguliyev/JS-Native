@@ -57,16 +57,6 @@ function ready() {
                 let cardItems = document.getElementsByClassName('card-items')[0];
                 while (cardItems.hasChildNodes()) {
                     cardItems.removeChild(cardItems.firstChild);
-                    if (!cardItems.hasChildNodes()) {
-                        $.toast({
-                            heading: 'Success',
-                            icon: 'success',
-                            position: 'bottom-right',
-                            text: 'All the items are purchased!',
-                            showHideTransition: 'slide',
-                            hideAfter: 3000
-                        });
-                    }
                 }
                 checkUpdate.updateTotal();
             });
