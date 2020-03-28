@@ -28,7 +28,7 @@ function ready() {
     let active = new ActiveClass();
     active.activeUrl();
 
-    let checkout = document.getElementById('shopping-purchase');
+    let checkout = document.getElementsByClassName('shopping-purchase')[0];
     let removeButton = document.getElementsByClassName('remove-item');
     let items = document.getElementsByClassName('card-items')[0];
     let totalPrice = document.getElementsByClassName('card-total-price')[0];
@@ -51,8 +51,24 @@ function ready() {
 
         purchase() {
             let checkItem = this.checkoutItem;
+            let checkUpdate = new AddToCart();
             checkItem.addEventListener('click', function (ev) {
                 ev.preventDefault();
+                let cardItems = document.getElementsByClassName('card-items')[0];
+                while (cardItems.hasChildNodes()) {
+                    cardItems.removeChild(cardItems.firstChild);
+                    if (!cardItems.hasChildNodes()) {
+                        $.toast({
+                            heading: 'Success',
+                            icon: 'success',
+                            position: 'bottom-right',
+                            text: 'All the items are purchased!',
+                            showHideTransition: 'slide',
+                            hideAfter: 3000
+                        });
+                    }
+                }
+                checkUpdate.updateTotal();
             });
         }
         remove() {
@@ -187,4 +203,5 @@ function ready() {
     removeValue.remove();
     removeValue.updatePrice();
     removeValue.addCard();
+    removeValue.purchase();
 }
