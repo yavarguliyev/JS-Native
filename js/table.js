@@ -145,13 +145,13 @@ function ready() {
     tableScoreTheadTr.append(tableScoreTheadTrTh);
 
     let tableScoreTbody = document.createElement('tbody');
-    tableScoreTbody.setAttribute('id', 'info');
+    tableScoreTbody.setAttribute('id', 'score');
 
     tableRow.append(tableScoreCol);
     tableScoreCol.append(tableScore);
     tableScore.append(tableScoreThead);
     tableScoreThead.appendChild(tableScoreTheadTr);
-    tableScoreTheadTr.append(tableScoreTbody);
+    tableScore.append(tableScoreTbody);
 
     // Section Score Table Starts
 
@@ -288,11 +288,11 @@ function ready() {
     dailyInput.setAttribute('type', 'number');
     dailyInput.setAttribute('step', '0.01');
     dailyInput.setAttribute('id', 'Daily');
-    dailyInput.setAttribute('class', 'form-control');
-    dailyInput.setAttribute('placeholder', 'Enter Salary $00.1...');
+    dailyInput.setAttribute('class', 'form-control score-input');
+    dailyInput.setAttribute('placeholder', 'Enter Salary $10.01...');
     dailyDiv.append(dailyInput);
     let dailySpan = document.createElement('span');
-    dailySpan.setAttribute('id', 'span-val')
+    dailySpan.setAttribute('id', 'score-val')
     dailySpan.setAttribute('class', 'invisible font-weight-bold text-danger')
     dailyDiv.append(dailySpan);
 
@@ -758,7 +758,6 @@ function ready() {
 
             document.getElementById("edit-info").addEventListener("click", function (ev) {
                 ev.preventDefault();
-                document.getElementById('modalInfo').modal('show');
             });
         }
         reset() {
@@ -782,7 +781,7 @@ function ready() {
             ev.preventDefault();
             let form = new Validation();
             form.required();
-        });
+        }, true);
 
         formInfo.addEventListener('submit', function (ev) {
             ev.preventDefault();
@@ -824,20 +823,200 @@ function ready() {
 
     // Show Info Inputs Ends
 
+    class ScoreValidation {
+        constructor() {
+            this.scoreInput = document.getElementsByClassName('score-input');
+            this.span = document.getElementById('score-val');
+
+            const score = [];
+            this.score = score;
+        }
+
+        required() {
+            const input = this.scoreInput;
+            const span = this.span;
+            let contains = span.classList.contains('invisible') ? true : false;
+            for (let i = 0; i < input.length; i++) {
+                const inputEle = input[i];
+
+                if (parseFloat(inputEle.value) < 10.01) {
+                    if (contains) {
+                        inputEle.value = 10.01;
+                        span.classList.remove('invisible');
+                        span.innerHTML = 'The min daily salary can be 10 USD!';
+                        return false;
+                    }
+                    if (!contains) {
+                        inputEle.value = 10.01;
+                        span.innerHTML = 'The min daily salary can be 10 USD!';
+                        return false;
+                    }
+                }
+                if (parseFloat(inputEle.value) > 100) {
+                    if (contains) {
+                        inputEle.value = 100.00;
+                        span.classList.remove('invisible');
+                        span.innerHTML = 'The max daily salary can be 100 USD!';
+                        return false;
+                    }
+                    if (!contains) {
+                        inputEle.value = 100.00;
+                        span.innerHTML = 'The max daily salary can be 100 USD!';
+                        return false;
+                    }
+                }
+                if (parseFloat(inputEle.value) >= 10.01 && parseFloat(inputEle.value) <= 100) {
+                    span.classList.add('invisible');
+                    span.innerHTML = '';
+                    return true;
+                }
+            }
+        }
+        push() {
+            let newScore = new ScoreValidation();
+            this.score.push(newScore);
+        }
+        valid() {
+            if (parseFloat(this.scoreInput[0].value) >= 10 && parseFloat(this.scoreInput[0].value) <= 100) {
+                return true;
+            }
+            return false;
+        }
+        append() {
+            this.push();
+            let tableScoreTbody = document.getElementById('score');
+            let tableScoreTbodyTr = document.createElement('tr');
+            let tableScoreTbodyTrTdFirstname = document.createElement('td');
+            let tableScoreTbodyTrTdLastname = document.createElement('td');
+            let tableScoreTbodyTrTdEmail = document.createElement('td');
+            let tableScoreTbodyTrTdIcons = document.createElement('td');
+            let tableScoreTbodyTrTdIconsEdit = document.createElement('a');
+            let tableScoreTbodyTrTdIconsEditIcon = document.createElement('i');
+            let tableScoreTbodyTrTdIconsDelete = document.createElement('a');
+            let tableScoreTbodyTrTdIconsDeleteIcon = document.createElement('i');
+
+            tableScoreTbodyTrTdIconsEdit.setAttribute('id', 'edit-score-info');
+            tableScoreTbodyTrTdIconsEdit.setAttribute('href', '#');
+            tableScoreTbodyTrTdIconsEdit.setAttribute('data-toggle', 'modal');
+            tableScoreTbodyTrTdIconsEdit.setAttribute('data-target', 'modalInfo');
+            tableScoreTbodyTrTdIconsEditIcon.setAttribute('class', 'fas fa-edit');
+            tableScoreTbodyTrTdIconsEditIcon.setAttribute('aria-hidden', 'true');
+            tableScoreTbodyTrTdIconsEdit.append(tableScoreTbodyTrTdIconsEditIcon);
+            tableScoreTbodyTrTdIcons.append(tableScoreTbodyTrTdIconsEdit);
+            tableScoreTbodyTrTdIconsDelete.append(tableScoreTbodyTrTdIconsDeleteIcon);
+            tableScoreTbodyTrTdIcons.append(tableScoreTbodyTrTdIconsDelete);
+            tableScoreTbodyTrTdIconsDelete.setAttribute('id', 'sweet-score-delete');
+            tableScoreTbodyTrTdIconsDelete.setAttribute('aria-hidden', 'true');
+            tableScoreTbodyTrTdIconsDelete.setAttribute('href', '#');
+            tableScoreTbodyTrTdIconsDeleteIcon.setAttribute('class', 'fas fa-trash-alt text-danger');
+
+            tableScoreTbodyTr.append(tableScoreTbodyTrTdFirstname);
+            tableScoreTbodyTr.append(tableScoreTbodyTrTdLastname);
+            tableScoreTbodyTr.append(tableScoreTbodyTrTdEmail);
+            tableScoreTbodyTr.append(tableScoreTbodyTrTdIcons);
+
+            for (let i = 0; i < this.score.length; i++) {
+                const s = this.score[i];
+
+                let daily = (parseFloat(s.scoreInput[0].value));
+                daily = Math.round(daily * 100) / 100;
+                tableScoreTbodyTrTdFirstname.innerHTML = '$ ' + daily;
+                let monthly = (parseFloat(s.scoreInput[0].value * 20));
+                monthly = Math.round(monthly * 100) / 100;
+                tableScoreTbodyTrTdLastname.innerHTML = '$ ' + monthly;
+                let yearly = (parseFloat(s.scoreInput[0].value * 240));
+                yearly = Math.round(yearly * 100) / 100;
+                tableScoreTbodyTrTdEmail.innerHTML = '$ ' + yearly;
+            }
+
+            tableScoreTbody.prepend(tableScoreTbodyTr);
+            this.reset();
+            document.getElementById("sweet-score-delete").addEventListener("click", function (ev) {
+                ev.preventDefault();
+                let row = this.parentNode.parentNode;
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        row.parentNode.removeChild(row);
+                        $.toast({
+                            heading: 'Success',
+                            icon: 'success',
+                            position: 'bottom-right',
+                            text: 'Deleted!',
+                            showHideTransition: 'slide',
+                            hideAfter: 3000
+                        });
+                    }
+                });
+            });
+
+            document.getElementById("edit-score-info").addEventListener("click", function (ev) {
+                ev.preventDefault();
+            });
+        }
+        reset() {
+            this.span.classList.add('invisible');
+            this.span.innerHTML = '';
+            document.getElementById('core-form').reset();
+        }
+    }
+
     // Show Score Inputs Starts
 
     modalScoreClickButton.addEventListener('click', function (ev) {
         ev.preventDefault();
         colScore.append(formScore);
 
+        document.getElementById('core-form').addEventListener('change', function (ev) {
+            ev.preventDefault();
+            let score = new ScoreValidation();
+            score.required();
+        });
+
         document.getElementById('core-form').addEventListener('submit', function (ev) {
             ev.preventDefault();
+            let scoreAppend = new ScoreValidation();
+
+            if (scoreAppend.required() == false) {
+                return false;
+            }
+            if (scoreAppend.valid()) {
+                scoreAppend.append();
+                scoreAppend.reset();
+                $.toast({
+                    heading: 'Success',
+                    icon: 'success',
+                    position: 'bottom-right',
+                    text: 'Salary Statement Created!',
+                    showHideTransition: 'slide',
+                    hideAfter: 3000
+                });
+                return true;
+            }
         });
     });
 
     modalScoreRemoveButton.addEventListener('click', function (ev) {
         ev.preventDefault();
-        colScore.removeChild(formScore);
+
+        let form = document.getElementById('core-form');
+        let input = document.getElementsByClassName('score-input');
+        let span = document.getElementById('score-val');
+
+        span.classList.add('invisible');
+        span.innerHTML = '';
+
+        input[0].value = '';
+
+        colScore.removeChild(form);
     });
 
     // Show Score Inputs Ends
