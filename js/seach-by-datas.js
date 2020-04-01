@@ -12,6 +12,14 @@ function ready() {
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
 
+    document.getElementById('clear-list').addEventListener('click', (ev) => {
+        ev.preventDefault();
+        const removeValue = document.getElementById('results');
+        while(removeValue.hasChildNodes()){
+            removeValue.removeChild(removeValue.firstElementChild);
+        }
+    });
+
     // Form event listener
     searchForm.addEventListener('submit', ev => {
         ev.preventDefault();
@@ -40,9 +48,9 @@ function ready() {
             // Loop throug post
             results.forEach(post => {
                 // Check for image
-                const image = 
-                post.preview ? post.preview.images[0].source.url : 
-                'https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/11/reddit-796x397.png';
+                const image =
+                    post.preview ? post.preview.images[0].source.url :
+                        'https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/11/reddit-796x397.png';
 
                 output += `
                 <div class="card">
@@ -84,7 +92,7 @@ function ready() {
     // Truncate text
     function truncateText(text, limit) {
         const shortened = text.indexOf(' ', limit);
-        if(shortened == -1) return text;
+        if (shortened == -1) return text;
         return text.substring(0, shortened);
     }
 }

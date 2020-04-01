@@ -37,7 +37,9 @@ function ready() {
                 list.appendChild(item);
             }
             if (group.length === 0) {
+                set.clearlist();
                 set.setNoResults();
+                return false;
             }
         }
         clearlist() {

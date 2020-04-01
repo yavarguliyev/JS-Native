@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 body {
   margin: 0;
   padding: 0;
@@ -102,5 +103,40 @@ body {
 .hovered {
   background: #f4f4f4;
   border-style: dashed;
+}
+
+.invisible {
+  display: none;
+}
+
+:root {
+  --dark-color-a: #667aff;
+  --dark-color-b: #7386ff;
+  --light-color: #e6e9ff;
+  --success-color: #5cb85c;
+  --error-color: #d9534f;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 5px 15px;
+  border: 0;
+  font-size: 17px;
+}
+
+.list-group {
+  position: absolute;
+  z-index: 99;
+  top: -42px;
+  right: -134px;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
