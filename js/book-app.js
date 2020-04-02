@@ -119,7 +119,6 @@ document.querySelector('#book-form').addEventListener('submit', (ev) => {
 
         // Clear fields
         UI.clearFields();
-        console.log(book);
     }
 });
 

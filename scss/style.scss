@@ -203,29 +203,35 @@ a {
   }
 }
 
-.buttons button#next {
-  position: absolute;
-  top: 300%;
-  right: 200px;
-}
-.buttons button#prev {
-  position: absolute;
-  top: 300%;
-  left: 200px;
-}
+.slider-buttons {
+  display: flex;
+  justify-content: space-between;
 
-.buttons button {
-  border: 2px solid #fff;
-  background-color: transparent;
-  color: #fff;
-  cursor: pointer;
-  padding: 13px 15px;
-  border-radius: 50%;
-  outline: none;
+  button#next {
+    position: absolute;
+    right: 200px;
+    background-color: #110ece;
+  }
 
-  &:hover {
-    background-color: #fff;
-    color: #333;
+  button#prev {
+    position: absolute;
+    left: 200px;
+    background-color: #110ece;
+  }
+
+  button {
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    padding: 13px 15px;
+    border-radius: 50%;
+    outline: none;
+
+    &:hover {
+      background-color: #fff;
+      color: #333;
+    }
   }
 }
 
@@ -377,7 +383,7 @@ a {
 }
 
 .item.muuri-item-releasing .item-content {
- background: #152c43;
+  background: #152c43;
 }
 
 // Sortable Ends

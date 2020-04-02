@@ -222,19 +222,28 @@ a {
   transition: all 0.7s ease-in-out 0.3s;
 }
 
-.buttons button#next {
+.slider-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.slider-buttons button#next {
   position: absolute;
-  top: 300%;
   right: 200px;
+  background-color: #110ece;
 }
 
-.buttons button#prev {
+.slider-buttons button#prev {
   position: absolute;
-  top: 300%;
   left: 200px;
+  background-color: #110ece;
 }
 
-.buttons button {
+.slider-buttons button {
   border: 2px solid #fff;
   background-color: transparent;
   color: #fff;
@@ -244,7 +253,7 @@ a {
   outline: none;
 }
 
-.buttons button:hover {
+.slider-buttons button:hover {
   background-color: #fff;
   color: #333;
 }

@@ -27,4 +27,15 @@ function ready() {
 
     let active = new ActiveClass();
     active.activeUrl();
+
+    // localStorage.setItem('name', 'Bob');
+    // localStorage.removeItem('name');
+
+    // sessionStorage.setItem('name', 'Bob');
+    // sessionStorage.removeItem('name');
+
+    // document.cookie = 'name=Kyle; expires=' + new Date('2020/06/12').toUTCString();
+    // console.log(document.cookie);
+
+    
 }
