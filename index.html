@@ -19,7 +19,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
                     <img class="d-inline-block align-top" widht="30" height="30" src="img/javascript-icon-clipart-6.png"
-                        alt="js"><a href="index.html" class="navbar-brand">JavaScript 1</a>
+                        alt="js"><a href="index.html" class="navbar-brand">JavaScript</a>
                     <div id="navbarSupportedContent" class="collapse navbar-collapse">
                         <ul id="navbar-list" class="navbar-nav mr-auto">
                             <li class="nav-item font-weight-bold"><a href="index.html" class="nav-link">Home</a>
@@ -147,10 +147,49 @@
                         </div>
                     </div>
                 </form>
+                <div class="row">
+                    <div class="col-3 border border-primary ml-auto d-flex justify-content-center py-1">
+                        <button id="clear-selected" class="btn btn-danger">Clear</button>
+                    </div>
+                </div>
                 <div id="car-results" class="row my-3"></div>
             </div>
         </section>
         <!-- Section Searching Values Ends  -->
+        <!-- Section Book-List Starts  -->
+        <section id="book-app">
+            <div class="container book-container my-4 border border-primary">
+                <h1 class="display-4 text-center"><i class="fas fa-book-open text-primary"></i> My<span
+                        class="text-primary">Book</span>List</h1>
+                <form id="book-form">
+                    <div class="form-group">
+                        <lable for="title" class="form-label-control">Title</lable>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    <div class="form-group">
+                        <lable for="author" class="form-label-control">Author</lable>
+                        <input type="text" class="form-control" id="author">
+                    </div>
+                    <div class="form-group">
+                        <lable for="isbn" class="form-label-control">ISBN#</lable>
+                        <input type="text" class="form-control" id="isbn">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Add Book">
+                </form>
+                <table class="table table-striped my-5">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>ISBN#</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="book-list"></tbody>
+                </table>
+            </div>
+        </section>
+        <!-- Section Book-List Ends  -->
         <!-- Section Card Starts  -->
         <section id="card-items">
             <div class="container my-4">
@@ -239,11 +278,78 @@
             </div>
         </section>
         <!-- Section Form Ends -->
+        <!-- Section Slider Starts -->
+        <section id="sliders">
+            <div class="container">
+                <div class="slider">
+                    <div class="slide current">
+                        <div class="content">
+                            <h1>Slide One</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="content">
+                            <h1>Slide Two</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="content">
+                            <h1>Slide Three</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="content">
+                            <h1>Slide Four</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="content">
+                            <h1>Slide Five</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="content">
+                            <h1>Slide Six</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="prev"><i class="fas fa-arrow-left"></i></button>
+                    <button id="next"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+        <!-- Section Slider Ends -->
+        <!-- Section Gallery Starts -->
+        <section id="gallery">
+            <div class="img-container my-4">
+                <div class="main-img">
+                    <img id="current" src="img/slider/chain-bridge-111329_1280.jpg" alt="1">
+                </div>
+                <div class="imgs">
+                    <img src="img/slider/chain-bridge-111329_1280.jpg" alt="2">
+                    <img src="img/slider/tram-4531184_1280.jpg" alt="3">
+                    <img src="img/slider/budapest-4182585_1280.jpg" alt="4">
+                    <img src="img/slider/budapest-3110288_1280.jpg" alt="5">
+                    <img src="img/slider/city-3090442_1280.jpg" alt="6">
+                    <img src="img/slider/tram-4868463_1280.jpg" alt="7">
+                    <img src="img/slider/budapest-4739291_1280.jpg" alt="8">
+                    <img src="img/slider/budapest-3110286_1280.jpg" alt="9">
+                </div>
+            </div>
+        </section>
+        <!-- Section Gallery Endss -->
         <!-- Section Drag-Drop Starts -->
         <section id="drag-drop">
-            <div class="container">
+            <div class="container my-4 m-auto">
                 <div class="row">
-                    <div class="col-12 m-auto">
+                    <div class="col-12">
                         <div class="empty">
                             <div class="fill" draggable="true"></div>
                         </div>
@@ -257,6 +363,128 @@
             </div>
         </section>
         <!-- Section Drag-Drop Ends -->
+        <!-- Section Sortable Starts -->
+        <section id="sortable-images">
+            <div class="container my-4 m-auto">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="grid">
+                            <div class="item">
+                                <div class="item-content">
+                                    One
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Two
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Three
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Four
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Five
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Six
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Seven
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Eight
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Nine
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    Ten
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/budapest-3110286_1280.jpg"
+                                        style="width: 200px; height: 200px;" alt="1">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/budapest-3110288_1280.jpg"
+                                        style="width: 200px; height: 200px;" alt="2">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/budapest-4182585_1280.jpg"
+                                        style="width: 200px; height: 200px;" alt="3">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/budapest-4739291_1280.jpg"
+                                        style="width: 200px; height: 200px;" alt="4">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/chain-bridge-111329_1280.jpg"
+                                        style="width: 200px; height: 200px;" alt="5">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/chain-bridge-2733058_1280.jpg"
+                                        style="width: 200px; height: 200px;" alt="6">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/city-3090442_1280.jpg" style="width: 200px; height: 200px;"
+                                        alt="7">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/tram-4531184_1280.jpg" style="width: 200px; height: 200px;"
+                                        alt="8">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/tram-4868463_1280.jpg" style="width: 200px; height: 200px;"
+                                        alt="9">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-content">
+                                    <img src="/img/slider/budapest-3110286_1280.jpg"
+                                        style="width: 200px; height: 200px;" alt="10">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Sortable Ends -->
         <!-- Section Rating Starts -->
         <section id="rating">
             <div class="container">
@@ -340,6 +568,34 @@
             </div>
         </section>
         <!-- Section Rating Ends -->
+        <!-- Section Modal Starts -->
+        <section id="modal-section">
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="col-6 mr-auto">
+                        <button id="modalBtn" class="btn btn-success">Modal</button>
+                    </div>
+                </div>
+            </div>
+            <div id="simpleModal" class="modalTest">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Modal Header</h2>
+                        <span class="closeBtn ml-auto">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <p>Hello...I am modal</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro ratione blanditiis deleniti,
+                            distinctio provident sapiente quasi laudantium, repellat ipsum sit soluta quia rem, fuga
+                            molestiae. Nostrum, voluptate. Atque, inventore odit?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <h3>Modal Footer</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Modal Ends -->
     </main>
     <!-- Main Ends -->
     <footer>
@@ -365,15 +621,23 @@
     <script src="vendor/js/sweet-alert.js"></script>
     <script src="vendor/js/toaster.js"></script>
     <script src="vendor/js/toaster-main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations-next.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
     <script src="js/active-class.js" async></script>
     <script src="js/search.js" async></script>
     <script type="module" src="js/seach-by-datas.js" async></script>
     <script type="module" src="js/multi-select-search.js" async></script>
+    <script src="js/book-app.js"></script>
     <script src="js/table.js" async></script>
     <script src="js/add-to-card.js" async></script>
     <script src="js/search-by-json.js"></script>
     <script src="js/drag-drop.js" async></script>
+    <script src="js/sortable.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/image-gallery.js"></script>
     <script src="js/rating.js" async></script>
+    <script src="js/modal.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 

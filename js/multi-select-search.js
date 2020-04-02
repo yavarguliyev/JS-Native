@@ -74,4 +74,28 @@ function ready() {
     }
 
     car();
+
+    document.getElementById('clear-selected').addEventListener('click', (ev) => {
+        ev.preventDefault();
+
+        select[0].value = 0;
+
+        while (select[1].childNodes.length != 3) {
+            select[1].removeChild(select[1].lastElementChild);
+        }
+
+        while (select[2].childNodes.length != 3) {
+            select[2].removeChild(select[2].lastElementChild);
+        }
+
+        while (select[3].childNodes.length != 3) {
+            select[3].removeChild(select[3].lastElementChild);
+        }
+
+        let clear = document.getElementById('car-results');
+
+        while(clear.hasChildNodes()){
+            clear.removeChild(clear.firstElementChild);
+        }
+    })
 }
