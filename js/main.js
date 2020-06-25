@@ -7,3 +7,12 @@ if ('serviceWorker' in navigator) {
             .catch(err => `Service Worker: Error: ${err}`);
     });
 }
+
+window.addEventListener('click', (ev) => {
+    ev.preventDefault();
+
+    window.scrollTo(500, 0);
+});
+
+console.log(window.pageYOffset);
+console.log(window.pageYOffset);
